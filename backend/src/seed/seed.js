@@ -16,7 +16,7 @@ const run = async () => {
 
     const passwordHash = await bcrypt.hash('Password@123', 10);
 
-    const admin = await User.create({
+    await User.create({
       fullName: 'Admin User',
       email: 'admin@example.com',
       phone: '+250788000000',
@@ -24,7 +24,7 @@ const run = async () => {
       password: passwordHash,
     });
 
-    const student1 = await User.create({
+    await User.create({
       fullName: 'Student One',
       email: 'student1@example.com',
       phone: '+250788000001',
@@ -33,7 +33,7 @@ const run = async () => {
       password: passwordHash,
     });
 
-    const student2 = await User.create({
+    await User.create({
       fullName: 'Student Two',
       email: 'student2@example.com',
       phone: '+250788000002',
