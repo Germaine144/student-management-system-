@@ -3,6 +3,8 @@
 This is the **Frontend** of the Student Management System built with **Next.js (App Router)**, **Tailwind CSS**, **TypeScript**, and **NextAuth**. It supports both **admin** and **student** users, providing full authentication and role-based dashboards.
 
 ---
+<img width="1512" height="982" alt="Screenshot 2025-07-31 at 21 55 14" src="https://github.com/user-attachments/assets/142cef4f-86a3-4dca-b33e-58793ff4ff20" />
+
 
 ## 🚀 Features
 
@@ -13,6 +15,7 @@ This is the **Frontend** of the Student Management System built with **Next.js (
 - 🌈 Responsive UI with Tailwind CSS
 - 📦 Mocked backend support for development
 
+<img width="1512" height="982" alt="Screenshot 2025-07-31 at 22 04 14" src="https://github.com/user-attachments/assets/32022a19-2b24-486d-9416-5812ee9d0d2d" />
 ---
 
 ## 🏗️ Tech Stack
@@ -88,6 +91,10 @@ npm run dev
 - **Password:** any
 
 - Or register a new account as a student.
+
+<img width="1512" height="982" alt="Screenshot 2025-07-31 at 21 55 21" src="https://github.com/user-attachments/assets/fca61c26-7bb6-4613-93ea-98c9d585d57b" />
+--
+<img width="1512" height="982" alt="Screenshot 2025-07-31 at 21 55 29" src="https://github.com/user-attachments/assets/94335178-c8c4-44a1-9cf9-aa1050abb83c" />
 
 
 ## 📬 API Endpoints Used
