@@ -258,8 +258,8 @@ This will:
 Login credentials:
 
 ```
-Email: admin@example.com
-Password: Password@123
+**Email:** admin@example.com
+**Password:** Password@123
 ```
 
 \--
@@ -273,4 +273,4 @@ MIT License. See LICENSE file.
 ## ✍️ Author
 
 * HABIMANA Jean de Dieu
-* Email: [jeandedh@andrew.cmu.edu](mailto:umuhiregerard12@gmail.com)
+* Email: [umuhiregerard12@gmail.com](mailto:umuhiregerard12@gmail.com)
