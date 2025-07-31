@@ -16,27 +16,65 @@ connectDB();
 
 const app = express();
 
-// Middlewares
+// ======================
+// Global Middleware Setup
+// ======================
+
+// Body parser middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({ origin: '*', credentials: false })); // Adjust for your Next.js domain if needed
+
+// CORS configuration
+app.use(cors({
+  origin: 'http://localhost:3000',  // ✅ allow requests from frontend
+  credentials: true                // ✅ allow cookies, headers, etc.
+}));
+
+// ✅ Handle preflight (OPTIONS) requests
+app.options('*', cors());
+
+// Log every request for debugging
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.originalUrl}`);
+  next();
+});
+
+// Security headers
 app.use(helmet());
+
+// Dev logging
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
-app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));
 
-// Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/students', studentRoutes);
+// Rate limiter to avoid abuse
+app.use(rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100                  // limit each IP to 100 requests per windowMs
+}));
 
-// Health check
+// ======================
+// Route Definitions
+// ======================
+app.use('/api/auth', authRoutes);       // Auth: register, login
+app.use('/api/users', userRoutes);      // User profiles, roles
+app.use('/api/students', studentRoutes); // Student CRUD
+
+// ======================
+// Health Check Endpoint
+// ======================
 app.get('/health', (req, res) => res.json({ status: 'ok' }));
 
-// Error handlers
-app.use(notFound);
-app.use(errorHandler);
+// ======================
+// Global Error Handlers
+// ======================
+app.use(notFound);       // 404 handler
+app.use(errorHandler);   // Custom error response formatter
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// ======================
+// Start Server
+// ======================
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
+});

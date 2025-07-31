@@ -9,6 +9,7 @@ const generateToken = (id) => {
 };
 
 export const register = asyncHandler(async (req, res) => {
+  console.log('Register route hit with data:', req.body);
   const { fullName, email, phone, password, course } = req.body;
 
   const existing = await User.findOne({ email });

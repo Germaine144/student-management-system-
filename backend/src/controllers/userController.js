@@ -2,15 +2,31 @@ import User from '../models/User.js';
 import { asyncHandler } from '../utils/asyncHandler.js';
 
 export const updateMe = asyncHandler(async (req, res) => {
-  const { fullName, phone, course, profilePicture } = req.body;
+  const { fullName, phone, course, profilePicture, enrollmentYear } = req.body;
 
-  const updated = await User.findByIdAndUpdate(
-    req.user._id,
-    { fullName, phone, course, profilePicture },
-    { new: true }
-  ).select('-password');
+  const user = await User.findById(req.user._id);
+  if (!user) return res.status(404).json({ message: 'User not found' });
 
-  res.json(updated);
+  // Update only allowed fields
+  user.fullName = fullName || user.fullName;
+  user.phone = phone || user.phone;
+  user.course = course || user.course;
+  user.profilePicture = profilePicture || user.profilePicture;
+  user.enrollmentYear = enrollmentYear || user.enrollmentYear;
+
+  const updated = await user.save();
+
+  res.json({
+    id: updated._id,
+    fullName: updated.fullName,
+    email: updated.email,
+    role: updated.role,
+    phone: updated.phone,
+    course: updated.course,
+    profilePicture: updated.profilePicture,
+    enrollmentYear: updated.enrollmentYear,
+    createdAt: updated.createdAt,
+  });
 });
 
 export const changeRole = asyncHandler(async (req, res) => {
