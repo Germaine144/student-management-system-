@@ -61,7 +61,7 @@ npm install
 
 ## 3. Create your environment file
 
-Create a .env.local file in the root directory and add:
+Create a **.env.local** file in the root directory and add:
 
 ```bash
 NEXTAUTH_SECRET=your-secret
@@ -80,12 +80,12 @@ npm run dev
 ## 🧑‍💻 Login Credentials (Mocked Users)
 
 ### - Admin
-- Email: admin@test.com  
-- Password: any
+- **Email:** admin@test.com  
+- **Password:** any
 
 ### - Student
-- Email: student@test.com  
-- Password: any
+- **Email:** student@test.com  
+- **Password:** any
 
 - Or register a new account as a student.
 
@@ -95,57 +95,17 @@ This frontend expects the following endpoints from the backend:
 
 # 📬 API Endpoints Used
 
-Method: POST  
-Endpoint: /api/auth/register  
-Description: Register a new user
-
---
-
-Method: POST  
-Endpoint: /api/auth/login  
-Description: Login and return JWT
-
---
-
-Method: GET  
-Endpoint: /api/auth/me  
-Description: Get current user profile
-
---
-
-Method: PUT  
-Endpoint: /api/users/me  
-Description: Update current user profile
-
---
-
-Method: GET  
-Endpoint: /api/students  
-Description: List students (admin only)
-
---
-
-Method: POST  
-Endpoint: /api/students  
-Description: Add new student (admin only)
-
---
-
-Method: PUT  
-Endpoint: /api/students/:id  
-Description: Update a student (admin only)
-
---
-
-Method: DELETE  
-Endpoint: /api/students/:id  
-Description: Delete a student (admin only)
-
---
-
-Method: PATCH  
-Endpoint: /api/users/:id/role  
-Description: Change user role (admin only)
+| Method | Endpoint              | Description                   |
+|--------|-----------------------|-------------------------------|
+| POST   | /api/auth/register    | Register a new user           |
+| POST   | /api/auth/login       | Login and return JWT          |
+| GET    | /api/auth/me          | Get current user profile      |
+| PUT    | /api/users/me         | Update current user profile   |
+| GET    | /api/students         | List students (admin only)    |
+| POST   | /api/students         | Add new student (admin only)  |
+| PUT    | /api/students/:id     | Update a student (admin only) |
+| DELETE | /api/students/:id     | Delete a student (admin only) |
+| PATCH  | /api/users/:id/role   | Change user role (admin only) |
 
 
 ## 📄 License
@@ -156,5 +116,5 @@ MIT License. See LICENSE for details.
 ## 🙋‍♂️ Author
 UMUHIRE Germaine
 
-### Email: ### jeandedh@andrew.cmu.edu
+### Email: umuhiregermaine12@gmail.com
 
