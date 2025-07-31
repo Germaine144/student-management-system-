@@ -118,3 +118,159 @@ UMUHIRE Germaine
 
 ### Email: umuhiregermaine12@gmail.com
 
+--
+
+# 🛠️ Student Management System – Backend
+
+Backend server for the Student Management System using Node.js, Express, and MongoDB.
+
+\--
+
+## 📆 Features
+
+* JWT authentication and role-based authorization
+* CRUD for student records (admin only)
+* Profile editing for logged-in users
+* API routes for login, registration, and user management
+* Seed script to insert initial admin and student data
+
+\--
+
+## 📆 Technologies Used
+
+* Node.js
+* Express.js
+* MongoDB & Mongoose
+* JWT for auth
+* Bcrypt for password hashing
+* dotenv for environment config
+* Helmet, CORS, Rate Limit for security
+
+\--
+
+## 📁 Folder Structure
+
+* `controllers/` – Auth, user, student logic
+* `models/` – Mongoose schemas
+* `routes/` – Express route handlers
+* `middlewares/` – Error and auth handlers
+* `config/` – DB connection
+* `seeder/` – Initial data script
+* `server.js` – App entry point
+
+\--
+
+## 📅 Setup Instructions
+
+### - 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/student-management-system-backend.git
+cd student-management-system-backend
+```
+
+### - 2. Install dependencies
+
+```bash
+npm install
+```
+
+### - 3. Create an environment file
+
+Create a `.env` file in the root directory and add:
+
+```
+PORT=5001
+NODE_ENV=development
+
+# MongoDB
+MONGO_URI=your-mongodb-uri
+
+# JWT
+JWT_SECRET=superSecretStudentSystem2025
+JWT_EXPIRES_IN=7d
+JWT_COOKIE_EXPIRES_IN=7d
+
+# Admin Secret
+ADMIN_SECRET=secret2025
+
+# CORS
+NEXT_PUBLIC_API_URL=http://localhost:5000
+```
+
+\--
+
+## ▶️ Running the Server
+
+```bash
+npm run dev
+```
+
+Go to: [http://localhost:5001](http://localhost:5001)
+
+\--
+
+## 🌐 API Endpoints
+
+```
+Method   | Endpoint               | Description
+-------- | ---------------------- | --------------------------------------------
+POST     | /api/auth/register     | Register new user (admin/student)
+POST     | /api/auth/login        | Login with credentials
+GET      | /api/auth/me           | Get current user profile (auth)
+PUT      | /api/users/me          | Update logged-in user's profile
+PATCH    | /api/users/:id/role    | Change user role (admin only)
+GET      | /api/students          | Get paginated students (admin only)
+POST     | /api/students          | Create a student (admin only)
+GET      | /api/students/:id      | Get single student (admin only)
+PUT      | /api/students/:id      | Update student info (admin only)
+DELETE   | /api/students/:id      | Delete student (admin only)
+GET      | /health                | Health check
+```
+
+\--
+
+## 🔐 Authentication & Authorization
+
+* JWT-based authentication using `Authorization: Bearer <token>`
+* Role-based access: `admin` and `student`
+* To register an admin, include this header:
+
+```
+x-admin-secret: secret2025
+```
+
+\--
+
+## 🧩️ Seed Data Script
+
+To populate the database with initial users and students:
+
+```bash
+node backend/seeder/index.js
+```
+
+This will:
+
+* Create 1 admin and 2 student users
+* Create 2 student records
+
+Login credentials:
+
+```
+Email: admin@example.com
+Password: Password@123
+```
+
+\--
+
+## 📄 License
+
+MIT License. See LICENSE file.
+
+\--
+
+## ✍️ Author
+
+* HABIMANA Jean de Dieu
+* Email: [jeandedh@andrew.cmu.edu](mailto:umuhiregerard12@gmail.com)
