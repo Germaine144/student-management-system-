@@ -82,6 +82,7 @@ export const registerUser = async (userData: {
   password: string;
   phone?: string;
   course?: string;
+  role?: 'admin' | 'student'; 
 }) => {
   try {
     const url = `${BASE_URL}/api/auth/register`;
@@ -93,6 +94,7 @@ export const registerUser = async (userData: {
       password: userData.password,
       phone: userData.phone,
       course: userData.course,
+      role: userData.role || 'student', // default to 'student' if not provided
     }, {  
       withCredentials: true,
     });

@@ -12,7 +12,8 @@ export const updateMe = asyncHandler(async (req, res) => {
   user.phone = phone || user.phone;
   user.course = course || user.course;
   user.profilePicture = profilePicture || user.profilePicture;
-  user.enrollmentYear = enrollmentYear || user.enrollmentYear;
+  // user.enrollmentYear = enrollmentYear || user.enrollmentYear;
+  if (enrollmentYear !== undefined) user.enrollmentYear = enrollmentYear;
 
   const updated = await user.save();
 
